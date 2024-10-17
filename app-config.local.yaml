@@ -1,0 +1,18 @@
+# Backstage override configuration for your local development environment
+auth:
+  # see https://backstage.io/docs/auth/ to learn about auth providers
+  providers:
+    guest: {}
+    # See https://backstage.io/docs/auth/guest/provider
+    atlassian:
+      development:
+        clientId: xVcAkbsXR2oDaTbFOdoVDNFlWYZ2MM2X
+        clientSecret: ATOAuCXuEltwP6uYQYKuf3BqBSb90vHMvQ8T40iA8RrC11BbVbu6QQdemlGi4xvzgRQSFB5C7C3D
+        scope: read:me, read:account
+        callbackUrl: 'http://localhost:7007/api/auth/atlassian'
+        signIn:
+          resolvers:
+            # typically you would pick one of these
+            - resolver: emailMatchingUserEntityProfileEmail
+            - resolver: emailLocalPartMatchingUserEntityName
+            - resolver: usernameMatchingUserEntityName
